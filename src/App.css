@@ -55,14 +55,14 @@ nav{
 }
 nav a{
   font-size: 20px;
-  padding: 15px;
+  padding: 25px;
   color: white;
   text-decoration: none;
 }
 
-nav a:hover{
+/* nav a:hover{
   border-bottom: 1px solid white;
-}
+} */
 
 
 #img img{
@@ -73,7 +73,10 @@ nav a:hover{
 .con{
   display: flex;
   /* text-align: center; */
-  justify-content: center;
+  /* justify-content: center; */
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
 }
 .con1{
   display: flex;
@@ -82,11 +85,22 @@ nav a:hover{
   
   
 }
+.con11 #body{
 
-.con11{
-  /* width: 20%; */
-  align-self: center;
-  justify-content: center;
+text-align: justify;
+  
+}
+
+#com{
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: -3px;
+}
+#comments{
+  padding-left: 30px;
+}
+.con11 h3{
+  text-align: center;
 }
 .con1 img{
   width: 100%;
@@ -141,9 +155,6 @@ nav a:hover{
   width: 100%;
   margin-bottom: 5px;
 }
-
-
-
 
 
 /* .App {

@@ -1,32 +1,58 @@
-import Button from './Button';
+
 import { useParams } from 'react-router-dom';
 import './Product.css';
-import React, { useState,useEffect } from 'react'
+import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+// import { useNavigate } from "react-router-dom";
+
+
 function Product(props){
+    const navigate= useNavigate()
+    
   
-    const{id, title, description,price, discountPercentage, rating, stock, brand, category, thumbnail, images } = props;
+        
+   
+  
+      // const data = JSON.parse(storedData);
+      
+    
+
+
+
+    const{id, body, title, tags } = props;
     const [des, setDes] = useState([]);
-    const describe = (e)=>{
-        let name= e.target.name;
-        let value = e.target.value;
-        // console.log(name)
-        setDes({
-         ...value,
-         [name]: value,
-        })
-         
-     }
+    
+    let url;
+
+    const storedData = localStorage.getItem('loggedIn');
+    const data = JSON.parse(storedData);
+
+    const submitData = (e)=>{
+    
+    if(data === true){
+      navigate( `/product/${id}`)
+    }else{
+      alert('You have to register and login before youo have access to the full details of the blog post')
+      // navigate('/')
+    }
+    }
+
+   
     console.log(props)
     return(
-        <div className='product'>
-            <h3 className='center'> {title}</h3>
-            <img src={images[0]} alt={title} />
-            <p style={{marginTop:'2%'}}> Price: {price}   <span style={{marginLeft:'2%'}}>Discount: {discountPercentage}</span></p>
-            <Link to={`/product/${id}`} className="btn btn-warning">Details</Link>
-            <Button  />
+        <>
+        {/* {JSON.stringify(props)} */}
+        <div className='product col-lg-3 col-md-4 col-sm-6 col-10'>
+            <span className='center'> {title}</span>
+         
+            <p style={{marginTop:'2%'}}>{body} </p>
+            <p style={{marginTop:'2%'}}>{tags} </p>
+            {/* <Link onSubmit={submitData   } className="btn btn-warning">Read More</Link> */}
+            <button style={{backgroundColor: 'orange', padding: '5px 12px', color: 'white'}} onClick={submitData}>Read More</button>
+          
         </div>
-    
+        </>
     )
 }
 
